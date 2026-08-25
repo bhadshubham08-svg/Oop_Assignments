@@ -2,7 +2,7 @@
 
 #include <iostream>
 using namespace std;
-
+int cnt;
 class bankacc
 {
     int accno;
@@ -22,6 +22,7 @@ public:
     {
         cout<<"Enter the basic details of Accountholder\nName,Accno,Accbal";
         cin>>name>>accno>>accbal;
+        cnt++;
     }
 
     void deposit()
@@ -33,9 +34,15 @@ public:
 
         if(acno==accno)
         {
-            accbal=accbal+amt;
-            cout<<"Amt deposited Successfully";
-            cout<<"Total bal="<<accbal;
+           if(amt > 0)
+           {
+                accbal=accbal+amt;
+                cout<<"Amt deposited Successfully";
+                cout<<"Total bal="<<accbal; 
+           }   
+           else{
+            cout<<"amt invalid";
+           }  
         }
         else
         {
@@ -86,7 +93,7 @@ int main()
     do
     {
         cout<<"\nWelcome";
-        cout<<"\n\n========== BANK ACCOUNT ==========";
+        cout<<"\n========== BANK ACCOUNT ==========";
         cout<<"\n1. Create Account";
         cout<<"\n2. Deposit";
         cout<<"\n3. Withdraw";
@@ -120,7 +127,7 @@ int main()
                 break;
 
             case 4:
-                for(i=0;i<100;i++)
+                for(i=0;i< cnt;i++)
                 {
                     b[i].display();
                 }
