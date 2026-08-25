@@ -86,6 +86,21 @@ public:
         }
     }
 
+    void minimumBalance(int ano)
+    {
+        if(accno==ano)
+        {
+            if(accbal>=1000)
+            {
+                cout<<"Minimum balance maintained";
+            }
+            else
+            {
+                cout<<"Minimum balance not maintained";
+            }
+        }
+    }
+
     void display()
     {
         cout<<name<<"\t"<<accno<<"\t"<<accbal<<"\n\n";
@@ -110,7 +125,8 @@ int main()
         cout<<"\n3. Withdraw";
         cout<<"\n4. Display All Accounts";
         cout<<"\n5. Search Account";
-        cout<<"\n6. Exit";
+        cout<<"\n6. Minimum Balance Check";
+        cout<<"\n7. Exit";
 
         cout<<"\n\nEnter choice: ";
         cin>>ch;
@@ -160,6 +176,20 @@ int main()
             }
 
             case 6:
+            {
+                int ano;
+
+                cout<<"Enter acc no to check minimum balance: ";
+                cin>>ano;
+
+                for(i=0;i<cnt;i++)
+                {
+                    b[i].minimumBalance(ano);
+                }
+                break;
+            }
+
+            case 7:
                 cout<<"Thank you!";
                 break;
 
@@ -168,7 +198,7 @@ int main()
                 break;
         }
 
-    }while(ch!=6);
+    }while(ch!=7);
 
     return 0;
 }
