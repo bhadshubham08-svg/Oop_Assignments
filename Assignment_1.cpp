@@ -2,7 +2,9 @@
 
 #include <iostream>
 using namespace std;
+
 int cnt;
+
 class bankacc
 {
     int accno;
@@ -34,15 +36,16 @@ public:
 
         if(acno==accno)
         {
-           if(amt > 0)
-           {
+            if(amt > 0)
+            {
                 accbal=accbal+amt;
                 cout<<"Amt deposited Successfully";
-                cout<<"Total bal="<<accbal; 
-           }   
-           else{
-            cout<<"amt invalid";
-           }  
+                cout<<"Total bal="<<accbal;
+            }
+            else
+            {
+                cout<<"amt invalid";
+            }
         }
         else
         {
@@ -55,7 +58,7 @@ public:
         int wamt,acno;
 
         cout<<"Enter acno and amt to withraw";
-        cin>>wamt>>acno;
+        cin>>acno>>wamt;
 
         if(acno==accno)
         {
@@ -72,6 +75,14 @@ public:
         else
         {
             cout<<"Acc no. invlaid";
+        }
+    }
+
+    void search(int ano)
+    {
+        if(accno==ano)
+        {
+            display();
         }
     }
 
@@ -98,7 +109,8 @@ int main()
         cout<<"\n2. Deposit";
         cout<<"\n3. Withdraw";
         cout<<"\n4. Display All Accounts";
-        cout<<"\n5. Exit";
+        cout<<"\n5. Search Account";
+        cout<<"\n6. Exit";
 
         cout<<"\n\nEnter choice: ";
         cin>>ch;
@@ -127,13 +139,27 @@ int main()
                 break;
 
             case 4:
-                for(i=0;i< cnt;i++)
+                for(i=0;i<cnt;i++)
                 {
                     b[i].display();
                 }
                 break;
 
             case 5:
+            {
+                int ano;
+
+                cout<<"Enter acc no to search the account: ";
+                cin>>ano;
+
+                for(i=0;i<cnt;i++)
+                {
+                    b[i].search(ano);
+                }
+                break;
+            }
+
+            case 6:
                 cout<<"Thank you!";
                 break;
 
@@ -142,7 +168,7 @@ int main()
                 break;
         }
 
-    }while(ch!=5);
+    }while(ch!=6);
 
     return 0;
 }
